@@ -5,9 +5,7 @@ module ActionDispatch
       class Session
         include Mongoid::Document
         
-        store_in :sessions
-
-        identity :type => String
+        store_in :collection => :sessions
 
         field :data, :type => String, :default => [Marshal.dump({})].pack("m*")
       end
